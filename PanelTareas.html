@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>App Tareas  - Kuepa</title>
+    <style>
+        body { font-family: Arial; max-width: 700px; margin: 20px auto; padding: 15px; }
+       .controles { background: #f9f9f9; padding: 15px; border-radius: 8px; margin-bottom: 15px; }
+        input, select, button { padding: 8px; margin: 4px; border-radius: 4px; border: 1px solid #ccc; }
+        button { background: #d32f2f; color: white; border: none; cursor: pointer; }
+        ul { padding: 0; }
+        li { 
+            background: white; margin: 8px 0; padding: 12px; border-radius: 6px;
+            border-left: 5px solid #ccc; list-style: none; display: flex; 
+            justify-content: space-between; align-items: center; box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+       .completada { opacity: 0.6; background: #e8f5e8; }
+       .completada.texto-tarea { text-decoration: line-through; }
+       .Alta { border-left-color: #d32f2f; }
+       .Media { border-left-color: #ff9800; }
+       .Baja { border-left-color: #4caf50; }
+       .badge { 
+            font-size: 11px; padding: 2px 8px; border-radius: 10px; 
+            color: white; margin-right: 5px;
+        }
+       .categoria { background: #1976d2; }
+       .prioridad-Alta { background: #d32f2f; }
+       .prioridad-Media { background: #ff9800; }
+       .prioridad-Baja { background: #4caf50; }
+       .fecha { font-size: 12px; color: #666; }
+       .contador { font-weight: bold; color: #d32f2f; }
+    </style>
+</head>
+<body>
+    <h1>📋 App Tareas Laborales</h1>
+    
+    <div class="controles">
+        <input type="text" id="tareaInput" placeholder="Escribe la tarea">
+        
+        <!-- MEJORA: Categorías -->
+        <select id="categoriaTarea">
+            <option value="Correo">Correo</option>
+            <option value="Llamada">Llamada</option>
+            <option value="Informe">Informe</option>
+            <option value="Reunión">Reunión</option>
+        </select>
+        
+        <!-- MEJORA: Prioridad -->
+        <select id="prioridadTarea">
+            <option value="Alta">Prioridad Alta</option>
+            <option value="Media" selected>Prioridad Media</option>
+            <option value="Baja">Prioridad Baja</option>
+        </select>
+        
+        <button onclick="agregarTarea()">Agregar Tarea</button>
+    </div>
+
+    <!-- MEJORA: Contador de tareas -->
+    <p>Total: <span class="contador" id="totalTareas">0</span> | 
+       Pendientes: <span class="contador" id="pendientes">0</span> | 
+       Completadas: <span class="contador" id="completadas">0</span>
+    </p>
+    
+    <ul id="listaTareas"></ul>
+    
+    <script src="scriptpanel.js"></script>
+</body>
+</html>
